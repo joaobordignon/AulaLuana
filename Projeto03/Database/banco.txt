@@ -1,0 +1,19 @@
+﻿create table Cliente (
+	IdCliente		int	primary key identity(1,1),
+	Nome			nvarchar(100), 
+	DataNascimento	date,
+	Email			nvarchar(100),
+	Telefone		nvarchar(20)
+);
+
+create table Endereco(
+	IdEndereco	    integer			identity(1,1),
+	Logradouro		nvarchar(250),
+	Bairro			nvarchar(150),
+	Cidade			nvarchar(100),
+	Estado			nvarchar(50),
+	Cep				nvarchar(10),
+	IdCliente		integer,
+	primary key(IdEndereco),
+	foreign key(IdCliente) references Cliente(IdCliente)
+);
