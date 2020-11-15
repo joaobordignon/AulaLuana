@@ -19,12 +19,40 @@ namespace Projeto03.Controller
                 Endereco endereco = EndrecoInput.CadastroEndereco();                
                 EnderecoRepository repository = new EnderecoRepository();
                 repository.InsertEnd(endereco);
-                Console.WriteLine("ENDERECO CLIENTE CADASTRADO COM SUCESSO.\n");
+               
             }
             catch (Exception e)
             {
                 Console.WriteLine("\nErro: " + e.Message);
             }
+        }
+
+        public void AtualizarEndereco()
+        {
+            Console.WriteLine("\n****ALTERAR ENDERECO DE CLIENTE****");
+            Console.WriteLine("-------------------------------------");
+            try
+            {
+                int lerIdEndereco = EndrecoInput.LerIdEndereco();
+                Endereco altEnd = EndrecoInput.CadastroEndereco();
+                altEnd.IdEndereco = lerIdEndereco;
+                EnderecoRepository altRepository = new EnderecoRepository();
+                altRepository.Update(altEnd);
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("\nErro: " + e.Message);
+            }
+        }
+
+        public void ExibirEndereco()
+        {
+            Endereco obj = new Endereco();
+            obj.IdEndereco = EndrecoInput.LerIdEndereco();
+            EnderecoRepository repository = new EnderecoRepository();
+            repository.Load(obj);
+            EndrecoInput.PrintEndereco(obj);
         }
     }
 }

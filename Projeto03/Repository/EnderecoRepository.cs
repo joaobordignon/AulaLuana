@@ -1,4 +1,5 @@
 ﻿using Projeto03.Entity;
+using Projeto03.Input;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -43,7 +44,7 @@ namespace Projeto03.Repository
         {
             string query = "update Endereco set Logradouro = @Logradouro, "
                 + "Bairro = @Bairro, Cidade = @Cidade, Estado = @Estado, "
-                + "Cep = @Cep IdCliente = @IdCliente where IdEndereco = @IdEndereco";
+                + "Cep = @Cep, IdCliente = @IdCliente where IdEndereco = @IdEndereco";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
 
@@ -60,6 +61,39 @@ namespace Projeto03.Repository
                 command.ExecuteNonQuery();
             }
         }
+
+        public Endereco Load(Endereco obj)
+        {
+            string query = "SELECT Logradouro, Bairro, Cidade, Estado, Cep, IdCliente, IdEndereco from Endereco" +
+                           "WHERE IdEndereco = " + obj.IdEndereco;
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(query, connection);
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            obj.Logradouro = reader.GetString(reader.GetOrdinal("Logradouro"));
+                            obj.Bairro = reader.GetString(reader.GetOrdinal("Bairro"));
+                            obj.Cidade = reader.GetString(reader.GetOrdinal("Cidade"));
+                            obj.Estado = reader.GetString(reader.GetOrdinal("Estado"));
+                            obj.Cep = reader.GetString(reader.GetOrdinal("Cep"));
+                            obj.IdCliente = reader.GetOrdinal("IdCliente");
+                            obj.IdEndereco = reader.GetOrdinal("IdEndereco");
+
+                        }
+                    }
+                    return obj;
+                }
+                
+            }
+        }
+
 
     }
 }

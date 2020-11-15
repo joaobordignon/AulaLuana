@@ -7,31 +7,31 @@ namespace Projeto03.Input
     {
         public static int LerIdCliente()
         {
-            Console.Write("Informe o código do cliente............: ");
+            Console.Write("Informe o código do cliente.............: ");
             return int.Parse(Console.ReadLine());
         }
 
         public static string LerNome()
         {
-            Console.Write("Informe o nome do cliente..............: ");
+            Console.Write("Informe o nome do cliente...............: ");
             return Console.ReadLine();
         }
 
         public static DateTime LerDataNascimento()
         {
-            Console.Write("Informe a data de nascimento...........: ");
+            Console.Write("Informe a data de nascimento............: ");
             return DateTime.Parse(Console.ReadLine());
         }
 
         public static string LerEmail()
         {
-            Console.Write("Informe o email........................: ");
+            Console.Write("Informe o email.........................: ");
             return Console.ReadLine();
         }
 
         public static string LerTelefone()
         {
-            Console.Write("Informe o telefone.....................: ");
+            Console.Write("Informe o telefone......................: ");
             return Console.ReadLine();
         }
         public static Cliente LerCliente()

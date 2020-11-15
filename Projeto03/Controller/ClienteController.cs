@@ -16,8 +16,7 @@ namespace Projeto03.Controller
                 Cliente cliente = ClienteInput.LerClienteEndereco();
                 ClienteService clienteService = new ClienteService();
                 clienteService.Insert(cliente);
-                Console.WriteLine("CLIENTE CADASTRADO COM SUCESSO.\n");
-            }
+                            }
             catch (Exception e)
             {
                 Console.WriteLine("\nErro: " + e.Message);

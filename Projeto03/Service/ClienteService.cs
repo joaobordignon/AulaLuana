@@ -19,7 +19,8 @@ namespace Projeto03.Service
                 cliente.Endereco.IdCliente = cliente.IdCliente;
                 EnderecoService service = new EnderecoService();
                 service.Insert(cliente.Endereco);
-                Console.WriteLine("Cadastro completo efetuado com sucesso!");
+                Console.WriteLine("Cadastro completo efetuado com sucesso!\n" +
+                    "Cliente ID: "+ cliente.IdCliente);
             }
             else 
             {

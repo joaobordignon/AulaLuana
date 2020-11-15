@@ -57,5 +57,16 @@ namespace Projeto03.Input
 
             return end;
         }
+
+        public static void PrintEndereco(Endereco obj)
+        {
+            Console.Write("código do endereco......................: " + obj.IdEndereco +
+                          "***************************************** " +
+                          "Logradouro..............................: " + obj.Logradouro +
+                          "Bairro..................................: " + obj.Bairro +
+                          "Cidade..................................: " + obj.Cidade +
+                          "Estado..................................: " + obj.Estado +
+                          "Cep.....................................: " + obj.Cep);
+        }
     }
 }
