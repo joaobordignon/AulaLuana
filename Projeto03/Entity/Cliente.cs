@@ -12,7 +12,7 @@ namespace Projeto03.Entity
         private int idCliente;
         private string email;
         private string telefone;
-        private Endereco endereco;
+        
         #endregion
 
         #region Construtores
@@ -21,12 +21,11 @@ namespace Projeto03.Entity
             this.email = email;
         }
 
-        public Cliente(string nome, DateTime dataNascimento, string email, string telefone, Endereco endereco)
+        public Cliente(string nome, DateTime dataNascimento, string email, string telefone)
             : base(nome, dataNascimento)
         {
             this.email = email;
             this.telefone = telefone;
-            this.endereco = endereco;
         }
         #endregion
 
@@ -34,7 +33,7 @@ namespace Projeto03.Entity
         public int IdCliente { get => idCliente; set => idCliente = value; }
         public string Email { get => email; set => email = value; }
         public string Telefone { get => telefone; set => telefone = value; }
-        public Endereco Endereco { get => endereco; set => endereco = value; }
+        
         #endregion
     }
 }

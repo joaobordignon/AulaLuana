@@ -33,5 +33,31 @@ namespace Projeto03.Repository
 
             }
         }
+
+        public Cliente SelectById(int id)
+        {
+            string query = "select * from Cliente where IdCliente = @IdCliente";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@IdCliente", id);
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    string email = Convert.ToString(reader["Email"]);
+                    Cliente cliente = new Cliente(email);
+                    cliente.IdCliente = Convert.ToInt32(reader["IdCliente"]);
+                    cliente.Nome = Convert.ToString(reader["Nome"]);
+                    cliente.Telefone = Convert.ToString(reader["Telefone"]);
+                    cliente.DataNascimento = Convert.ToDateTime(reader["DataNascimento"]);
+                    return cliente;
+                }
+
+                return null;
+            }
+        }
     }
 }

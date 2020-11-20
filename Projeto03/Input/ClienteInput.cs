@@ -44,12 +44,7 @@ namespace Projeto03.Input
             return c;
         }
 
-        public static Cliente LerClienteEndereco()
-        {
-            Cliente c = LerCliente();
-            c.Endereco = EndrecoInput.CadastroEndereco();
-            return c;
-        }
+
 
     }
 }
