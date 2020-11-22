@@ -15,8 +15,8 @@ namespace Projeto03.Service
         {
             
             repository.Insert(cliente);
-            Console.WriteLine($"\nCliente {cliente.IdCliente} Cadastrado com sucesso!\n");      
             
+
         }
 
         public Cliente SelectById(int id)
@@ -25,6 +25,18 @@ namespace Projeto03.Service
             Cliente cliente = repository.SelectById(id);
             return cliente;
             
+        }
+
+        public void UpdateById(int id, Cliente cliente)
+        {
+
+            repository.UpdatebyId(id, cliente);
+           
+        }
+
+        public void DeleteById(int id)
+        {
+            repository.DeleteById(id);
         }
     }
 }

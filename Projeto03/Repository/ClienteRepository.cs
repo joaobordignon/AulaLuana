@@ -59,5 +59,38 @@ namespace Projeto03.Repository
                 return null;
             }
         }
+
+        public void UpdatebyId(int id, Cliente obj)
+        {
+            string query = "UPDATE Cliente " +
+                "SET Nome = @Nome, DataNascimento = @DataNascimento, Email = @Email, Telefone = @Telefone " +
+                "WHERE IdCliente = " + id;
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Nome", obj.Nome);
+                command.Parameters.AddWithValue("@DataNascimento", obj.DataNascimento);
+                command.Parameters.AddWithValue("@Email", obj.Email);
+                command.Parameters.AddWithValue("@Telefone", obj.Telefone);
+                command.ExecuteNonQuery();
+            }
+        }
+
+        public void DeleteById(int id)
+        {
+            string query = "DELETE FROM Cliente WHERE IdCliente = @IdCliente";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@IdCliente", id);
+                command.ExecuteNonQuery();
+            }
+        }
     }
 }

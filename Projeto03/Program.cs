@@ -15,7 +15,7 @@ namespace Projeto03
 
             while (loadMain == 0)
             {
-
+                Console.Clear();
                 Console.WriteLine("**************TELA DE CLIENTES**************");
                 Console.WriteLine("--------------------------------------------\n" +
                                   "********************MENU********************\n");
@@ -23,6 +23,7 @@ namespace Projeto03
                 Console.WriteLine("\t 1 - Criar novo Cliente.\n" +
                                   "\t 2 - Alterar Cadastro Cliente \n" +
                                   "\t 3 - Consultar Cliente por ID.\n" +
+                                  "\t 4 - Apagar Cliente por ID.\n" +
                                   "\t 9 - Sair.\n");
                 Console.Write(    "Selecione a opçao desejada.................: ");
                 int menu = int.Parse(Console.ReadLine());
@@ -36,13 +37,20 @@ namespace Projeto03
                         break;
 
                     case 2:
-                        
+                        Console.WriteLine("Atualizar Cliente:");
+                        controller.UpdateById();
                         loadMain = 0;
                         break;
 
                     case 3:
                         Console.WriteLine("Consultar Cliente:");
                         controller.SelectById();
+                        loadMain = 0;
+                        break;
+
+                    case 4:
+                        Console.WriteLine("Consultar Cliente:");
+                        controller.DeleteById();
                         loadMain = 0;
                         break;
 
@@ -53,6 +61,8 @@ namespace Projeto03
 
                     default:
                         Console.WriteLine("Opcao invalida...");
+                        Console.WriteLine("Pressione ENTER para voltar ao menu inicial\n");
+                        Console.ReadKey();
                         loadMain = 0;
                         break;
 
