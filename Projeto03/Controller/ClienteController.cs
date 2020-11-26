@@ -35,6 +35,13 @@ namespace Projeto03.Controller
                 int id = ClienteInput.LerIdCliente();
                 ClienteService clienteService = new ClienteService();
                 Cliente cliente = clienteService.SelectById(id);
+                if(cliente == null)
+                {
+                    Console.WriteLine("Cliente nao existente no Banco de Dados!");
+                    Console.WriteLine("Pressione ENTER para voltar ao menu inicial\n");
+                    Console.ReadKey();
+                    return;
+                }
                 ClienteOutput.ShowCliente(cliente);
                 Console.WriteLine("Pressione ENTER para voltar ao menu inicial\n");
                 Console.ReadKey();
