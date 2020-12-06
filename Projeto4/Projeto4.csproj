@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -43,27 +58,48 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\PessoaFisicaController.cs" />
     <Compile Include="Entities\Cliente.cs" />
     <Compile Include="Entities\Contato.cs" />
     <Compile Include="Entities\Endereco.cs" />
-    <Compile Include="Entities\Enums\EnumCliente.cs" />
-    <Compile Include="Entities\Enums\EnumContato.cs" />
-    <Compile Include="Entities\Enums\EnumProduto.cs" />
     <Compile Include="Entities\Enums\Estado.cs" />
-    <Compile Include="Entities\Estoque.cs" />
-    <Compile Include="Entities\Produto.cs" />
+    <Compile Include="Entities\PessoaFisica.cs" />
+    <Compile Include="Entities\PessoaJuridica.cs" />
+    <Compile Include="Input\ContatoInput.cs" />
+    <Compile Include="Input\EnderecoInput.cs" />
+    <Compile Include="Input\PessoaFisicaInput.cs" />
+    <Compile Include="Input\PessoaJuridicaInput.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\PessoaFisicaRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controller\" />
-    <Folder Include="Input\" />
     <Folder Include="Output\" />
-    <Folder Include="Repository\" />
     <Folder Include="Service\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DataBase\Marcelo.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DataBase\Marcelo_log.ldf">
+      <DependentUpon>Marcelo.mdf</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

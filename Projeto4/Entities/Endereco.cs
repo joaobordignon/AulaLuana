@@ -14,10 +14,10 @@ namespace Projeto4.Entities
         public string Complemento { get; set; }
         public string Bairro { get; set; }
         public string Cidade { get; set; }
-        public Estado Estado { get; set; }
+        public string Estado { get; set; }
         public string Cep { get; set; }
 
-        public Endereco(string logradouro, string numero, string complemento, string bairro, string cidade, Estado estado, string cep)
+        public Endereco(string logradouro, string numero, string complemento, string bairro, string cidade, string estado, string cep)
         {
             Logradouro = logradouro;
             Numero = numero;

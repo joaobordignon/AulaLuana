@@ -9,17 +9,18 @@ namespace Projeto4.Entities
 {
     public class Contato
     {
-        public string Nome { get; set; }
+        public string NomeContato { get; set; }
         public string Telefone { get; set; }
+        public string Celular { get; set; }
         public string Email { get; set; }
-        public EnumContato TipoContato { get; set; }
+        
 
-        public Contato(string nome, string telefone, string email, EnumContato tipoContato)
+        public Contato(string telefone, string email, string celular, string nomeContato)
         {
-            Nome = nome;
             Telefone = telefone;
+            Celular = celular;
             Email = email;
-            TipoContato = tipoContato;
+            NomeContato = nomeContato;
         }
 
         public Contato()

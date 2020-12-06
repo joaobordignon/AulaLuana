@@ -1,0 +1,23 @@
+Relaçao:
+
+Cliente
+ID CLiente
+ID Endereco
+ID PessoaFisica
+ID PessoaJuridica
+
+|
+|
+V
+
+Contato:
+
+|
+|
+V
+
+Endereco
+	/\
+       /  \
+      V    V
+   Fisica  Juridica

@@ -4,12 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Projeto4.Entities.Enums
+namespace Projeto4.Repository
 {
-    public enum EnumCliente
+    class PessoaFisicaRepository
     {
-        PessoaFisica,
-        PessoaJuridica,
-        Internacional
     }
 }
